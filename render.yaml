@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: tbm-prediction-app
+    env: python
+    buildCommand: "npm install && npm run build && pip install -r backend/requirements.txt"
+    startCommand: "cd backend && gunicorn app:app"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: NODE_VERSION
+        value: 20
